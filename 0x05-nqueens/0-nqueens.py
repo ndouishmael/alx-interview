@@ -20,7 +20,7 @@ class NQueen:
         # j checks from 1 to k - 1 (Up to previous queen)
         for j in range(1, k):
             # There is already a queen in column
-            # or a queen in same diagonal
+            # or a queen in the same diagonal
             if self.x[j] == i or \
                abs(self.x[j] - i) == abs(j - k):
                 return 0
@@ -37,13 +37,13 @@ class NQueen:
                 # Queen can be placed in i column
                 self.x[k] = i
                 if k == self.n:
-                    # Placed all 4 Queens (A solution was found)
+                    # Placed all N queens (A solution was found)
                     solution = []
                     for i in range(1, self.n + 1):
                         solution.append([i - 1, self.x[i] - 1])
                     self.res.append(solution)
                 else:
-                    # Need to place more Queens
+                    # Need to place more queens
                     self.nQueen(k + 1)
         return self.res
 
